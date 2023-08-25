@@ -7,6 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CF0317802A985162002D59C6 /* lift_apple_watchApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF03177F2A985162002D59C6 /* lift_apple_watchApp.swift */; };
+		CF0317822A985162002D59C6 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF0317812A985162002D59C6 /* ContentView.swift */; };
+		CF0317842A985163002D59C6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CF0317832A985163002D59C6 /* Assets.xcassets */; };
+		CF0317872A985163002D59C6 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CF0317862A985163002D59C6 /* Preview Assets.xcassets */; };
+		CF03178A2A985163002D59C6 /* lift-apple-watch Watch App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = CF03177D2A985162002D59C6 /* lift-apple-watch Watch App.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		CF0317972A9858AF002D59C6 /* ios-manager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF0317962A9858AF002D59C6 /* ios-manager.swift */; };
+		CF0317992A9858CB002D59C6 /* watchos-manager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF0317982A9858CB002D59C6 /* watchos-manager.swift */; };
+		CF03179C2A9858F6002D59C6 /* NotificationMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF03179B2A9858F6002D59C6 /* NotificationMessage.swift */; };
+		CF03179D2A9858FE002D59C6 /* NotificationMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF03179B2A9858F6002D59C6 /* NotificationMessage.swift */; };
 		CF0C23CB2A8B1E5400F21574 /* liftApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF0C23CA2A8B1E5400F21574 /* liftApp.swift */; };
 		CF0C23CD2A8B1E5400F21574 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF0C23CC2A8B1E5400F21574 /* ContentView.swift */; };
 		CF0C23CF2A8B1E5500F21574 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CF0C23CE2A8B1E5500F21574 /* Assets.xcassets */; };
@@ -25,7 +34,43 @@
 		CF99D69E2A96DDA1003DEFAA /* PlanView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF99D69D2A96DDA1003DEFAA /* PlanView.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		CF0317882A985163002D59C6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CF0C23BF2A8B1E5400F21574 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = CF03177C2A985162002D59C6;
+			remoteInfo = "lift-apple-watch Watch App";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		CF03178B2A985163002D59C6 /* Embed Watch Content */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
+			dstSubfolderSpec = 16;
+			files = (
+				CF03178A2A985163002D59C6 /* lift-apple-watch Watch App.app in Embed Watch Content */,
+			);
+			name = "Embed Watch Content";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		CF03177D2A985162002D59C6 /* lift-apple-watch Watch App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "lift-apple-watch Watch App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		CF03177F2A985162002D59C6 /* lift_apple_watchApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = lift_apple_watchApp.swift; sourceTree = "<group>"; };
+		CF0317812A985162002D59C6 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		CF0317832A985163002D59C6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		CF0317862A985163002D59C6 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		CF03178F2A9851B9002D59C6 /* lift-apple-watch-Watch-App-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "lift-apple-watch-Watch-App-Info.plist"; sourceTree = SOURCE_ROOT; };
+		CF0317902A9851EF002D59C6 /* lift.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = lift.entitlements; sourceTree = "<group>"; };
+		CF0317952A9857B9002D59C6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		CF0317962A9858AF002D59C6 /* ios-manager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ios-manager.swift"; sourceTree = "<group>"; };
+		CF0317982A9858CB002D59C6 /* watchos-manager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "watchos-manager.swift"; sourceTree = "<group>"; };
+		CF03179B2A9858F6002D59C6 /* NotificationMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationMessage.swift; sourceTree = "<group>"; };
+		CF03179E2A98615D002D59C6 /* lift-apple-watch Watch App.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "lift-apple-watch Watch App.entitlements"; sourceTree = "<group>"; };
 		CF0C23C72A8B1E5400F21574 /* lift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = lift.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CF0C23CA2A8B1E5400F21574 /* liftApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = liftApp.swift; sourceTree = "<group>"; };
 		CF0C23CC2A8B1E5400F21574 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -46,6 +91,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		CF03177A2A985162002D59C6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		CF0C23C42A8B1E5400F21574 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -56,10 +108,42 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		CF03177E2A985162002D59C6 /* lift-apple-watch Watch App */ = {
+			isa = PBXGroup;
+			children = (
+				CF03179E2A98615D002D59C6 /* lift-apple-watch Watch App.entitlements */,
+				CF03178F2A9851B9002D59C6 /* lift-apple-watch-Watch-App-Info.plist */,
+				CF03177F2A985162002D59C6 /* lift_apple_watchApp.swift */,
+				CF0317812A985162002D59C6 /* ContentView.swift */,
+				CF0317832A985163002D59C6 /* Assets.xcassets */,
+				CF0317852A985163002D59C6 /* Preview Content */,
+				CF0317982A9858CB002D59C6 /* watchos-manager.swift */,
+			);
+			path = "lift-apple-watch Watch App";
+			sourceTree = "<group>";
+		};
+		CF0317852A985163002D59C6 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				CF0317862A985163002D59C6 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		CF03179A2A9858E9002D59C6 /* shared */ = {
+			isa = PBXGroup;
+			children = (
+				CF03179B2A9858F6002D59C6 /* NotificationMessage.swift */,
+			);
+			path = shared;
+			sourceTree = "<group>";
+		};
 		CF0C23BE2A8B1E5400F21574 = {
 			isa = PBXGroup;
 			children = (
+				CF03179A2A9858E9002D59C6 /* shared */,
 				CF0C23C92A8B1E5400F21574 /* lift */,
+				CF03177E2A985162002D59C6 /* lift-apple-watch Watch App */,
 				CF0C23C82A8B1E5400F21574 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -68,6 +152,7 @@
 			isa = PBXGroup;
 			children = (
 				CF0C23C72A8B1E5400F21574 /* lift.app */,
+				CF03177D2A985162002D59C6 /* lift-apple-watch Watch App.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -75,6 +160,8 @@
 		CF0C23C92A8B1E5400F21574 /* lift */ = {
 			isa = PBXGroup;
 			children = (
+				CF0317952A9857B9002D59C6 /* Info.plist */,
+				CF0317902A9851EF002D59C6 /* lift.entitlements */,
 				CF48FCAA2A8C454C005C1CB1 /* api.swift */,
 				CF48FCAC2A8C45B5005C1CB1 /* types.swift */,
 				CF48FCA82A8C4533005C1CB1 /* store.swift */,
@@ -91,6 +178,7 @@
 				CF36B7B22A943EB100BEFE28 /* AIView.swift */,
 				CF0C23CE2A8B1E5500F21574 /* Assets.xcassets */,
 				CF0C23D02A8B1E5500F21574 /* Preview Content */,
+				CF0317962A9858AF002D59C6 /* ios-manager.swift */,
 			);
 			path = lift;
 			sourceTree = "<group>";
@@ -106,6 +194,23 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		CF03177C2A985162002D59C6 /* lift-apple-watch Watch App */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CF03178E2A985163002D59C6 /* Build configuration list for PBXNativeTarget "lift-apple-watch Watch App" */;
+			buildPhases = (
+				CF0317792A985162002D59C6 /* Sources */,
+				CF03177A2A985162002D59C6 /* Frameworks */,
+				CF03177B2A985162002D59C6 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "lift-apple-watch Watch App";
+			productName = "lift-apple-watch Watch App";
+			productReference = CF03177D2A985162002D59C6 /* lift-apple-watch Watch App.app */;
+			productType = "com.apple.product-type.application";
+		};
 		CF0C23C62A8B1E5400F21574 /* lift */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = CF0C23D52A8B1E5500F21574 /* Build configuration list for PBXNativeTarget "lift" */;
@@ -113,10 +218,12 @@
 				CF0C23C32A8B1E5400F21574 /* Sources */,
 				CF0C23C42A8B1E5400F21574 /* Frameworks */,
 				CF0C23C52A8B1E5400F21574 /* Resources */,
+				CF03178B2A985163002D59C6 /* Embed Watch Content */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				CF0317892A985163002D59C6 /* PBXTargetDependency */,
 			);
 			name = lift;
 			productName = lift;
@@ -133,6 +240,9 @@
 				LastSwiftUpdateCheck = 1430;
 				LastUpgradeCheck = 1430;
 				TargetAttributes = {
+					CF03177C2A985162002D59C6 = {
+						CreatedOnToolsVersion = 14.3.1;
+					};
 					CF0C23C62A8B1E5400F21574 = {
 						CreatedOnToolsVersion = 14.3.1;
 					};
@@ -152,11 +262,21 @@
 			projectRoot = "";
 			targets = (
 				CF0C23C62A8B1E5400F21574 /* lift */,
+				CF03177C2A985162002D59C6 /* lift-apple-watch Watch App */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		CF03177B2A985162002D59C6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CF0317872A985163002D59C6 /* Preview Assets.xcassets in Resources */,
+				CF0317842A985163002D59C6 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		CF0C23C52A8B1E5400F21574 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -169,10 +289,22 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		CF0317792A985162002D59C6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CF03179C2A9858F6002D59C6 /* NotificationMessage.swift in Sources */,
+				CF0317992A9858CB002D59C6 /* watchos-manager.swift in Sources */,
+				CF0317822A985162002D59C6 /* ContentView.swift in Sources */,
+				CF0317802A985162002D59C6 /* lift_apple_watchApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		CF0C23C32A8B1E5400F21574 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CF03179D2A9858FE002D59C6 /* NotificationMessage.swift in Sources */,
 				CF48FCAB2A8C454C005C1CB1 /* api.swift in Sources */,
 				CF48FCAF2A8C487E005C1CB1 /* MainView.swift in Sources */,
 				CF0C23CD2A8B1E5400F21574 /* ContentView.swift in Sources */,
@@ -187,12 +319,91 @@
 				CF48FCAD2A8C45B5005C1CB1 /* types.swift in Sources */,
 				CF48FCB12A8C56D5005C1CB1 /* MetricView.swift in Sources */,
 				CF0C23CB2A8B1E5400F21574 /* liftApp.swift in Sources */,
+				CF0317972A9858AF002D59C6 /* ios-manager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		CF0317892A985163002D59C6 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = CF03177C2A985162002D59C6 /* lift-apple-watch Watch App */;
+			targetProxy = CF0317882A985163002D59C6 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin XCBuildConfiguration section */
+		CF03178C2A985163002D59C6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
+				CODE_SIGN_ENTITLEMENTS = "lift-apple-watch Watch App/lift-apple-watch Watch App.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "lift-apple-watch\\ Watch\\ App/Preview\\ Content";
+				DEVELOPMENT_TEAM = A94GJU82N8;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "lift-apple-watch-Watch-App-Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "lift-apple-watch";
+				INFOPLIST_KEY_NSHealthShareUsageDescription = "Allowing write access lets us automatically start workouts on your Apple Watch.";
+				INFOPLIST_KEY_NSHealthUpdateUsageDescription = "We need access to manage workouts to track your calories.";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = app.elijahcobb.lift;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = app.elijahcobb.lift.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 9.4;
+			};
+			name = Debug;
+		};
+		CF03178D2A985163002D59C6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
+				CODE_SIGN_ENTITLEMENTS = "lift-apple-watch Watch App/lift-apple-watch Watch App.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "lift-apple-watch\\ Watch\\ App/Preview\\ Content";
+				DEVELOPMENT_TEAM = A94GJU82N8;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "lift-apple-watch-Watch-App-Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "lift-apple-watch";
+				INFOPLIST_KEY_NSHealthShareUsageDescription = "Allowing write access lets us automatically start workouts on your Apple Watch.";
+				INFOPLIST_KEY_NSHealthUpdateUsageDescription = "We need access to manage workouts to track your calories.";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = app.elijahcobb.lift;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = app.elijahcobb.lift.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 9.4;
+			};
+			name = Release;
+		};
 		CF0C23D32A8B1E5500F21574 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -310,16 +521,21 @@
 		CF0C23D62A8B1E5500F21574 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = lift/lift.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_ASSET_PATHS = "\"lift/Preview Content\"";
 				DEVELOPMENT_TEAM = A94GJU82N8;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = lift/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = Lift;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.healthcare-fitness";
+				INFOPLIST_KEY_NSHealthShareUsageDescription = "Allowing write access lets us automatically start workouts on your Apple Watch.";
+				INFOPLIST_KEY_NSHealthUpdateUsageDescription = "We need access to manage workouts to track your calories.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -344,16 +560,21 @@
 		CF0C23D72A8B1E5500F21574 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = lift/lift.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_ASSET_PATHS = "\"lift/Preview Content\"";
 				DEVELOPMENT_TEAM = A94GJU82N8;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = lift/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = Lift;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.healthcare-fitness";
+				INFOPLIST_KEY_NSHealthShareUsageDescription = "Allowing write access lets us automatically start workouts on your Apple Watch.";
+				INFOPLIST_KEY_NSHealthUpdateUsageDescription = "We need access to manage workouts to track your calories.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -378,6 +599,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		CF03178E2A985163002D59C6 /* Build configuration list for PBXNativeTarget "lift-apple-watch Watch App" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CF03178C2A985163002D59C6 /* Debug */,
+				CF03178D2A985163002D59C6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		CF0C23C22A8B1E5400F21574 /* Build configuration list for PBXProject "lift" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

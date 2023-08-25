@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import HealthKit
 
 class Store: ObservableObject {
 	@Published var metrics: [Metric] = []
@@ -327,6 +328,7 @@ class Store: ObservableObject {
 	}
 	
 	func finishWorkout(workout: Workout) {
+		WatchConnectivityManager.shared.send(Command.end)
 		self.tabIndex = 0
 		self.pastWorkouts.insert(workout, at: 0)
 		self.activeWorkout = nil
@@ -347,6 +349,36 @@ class Store: ObservableObject {
 	}
 	
 	func startWorkout() {
+		
+		let healthStore = HKHealthStore()
+		
+		let typesToShare: Set = [
+			HKQuantityType.workoutType()
+		]
+		
+		
+		// The quantity types to read from the health store.
+		let typesToRead: Set = [
+			HKQuantityType.quantityType(forIdentifier: .heartRate)!,
+			HKQuantityType.quantityType(forIdentifier: .activeEnergyBurned)!,
+		]
+		
+		
+		// Request authorization for those quantity types.
+		healthStore.requestAuthorization(toShare: typesToShare, read: typesToRead) { (success, error) in
+			// Handle errors here.
+		}
+		let config = HKWorkoutConfiguration()
+		config.activityType = .traditionalStrengthTraining
+		config.locationType = .indoor
+		healthStore.startWatchApp(with: config) { success, err in
+			if success {
+				print("OPENED APPLE WATCH APP")
+			} else {
+				print(err?.localizedDescription)
+			}
+		}
+		
 		Task {
 			do {
 				let res = try await fetch(path: "/workout", method: "POST", type: APIWorkout.self, body: [:]).get()
