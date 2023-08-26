@@ -377,7 +377,7 @@ class Store: ObservableObject {
 	
 	private func setPointPlanned(point oldPoint: Point, planned: Bool) -> Void {
 		DispatchQueue.main.async {
-			guard let workout = self.activeWorkout else { return }
+			guard var workout = self.activeWorkout else { return }
 			var point = oldPoint
 			point.planned = planned
 			let i = workout.points.firstIndex { p in
@@ -387,22 +387,21 @@ class Store: ObservableObject {
 			var points = workout.points
 			points.remove(at: index)
 			points.insert(point, at: index)
-			self.activeWorkout?.points = points
+			workout.points = points
+			self.activeWorkout = workout
 		}
 	}
 	
-	func startPoint(point: Point) {
-		setPointPlanned(point: point, planned: false)
-		Task {
-			do {
-				try await fetch(path: "/point/\(point.id)/start", method: "POST", type: APIEmpty.self, body: [:]).get()
-				print("SUCESS")
-			} catch {
-				print(error)
-				setPointPlanned(point: point, planned: true)
-			}
+	func startPoint(point: Point) async -> Result<Void, APIError>  {
+		do {
+			try await fetch(path: "/point/\(point.id)/start", method: "POST", type: APIEmpty.self, body: [:]).get()
+			print("SUCdCESS")
+			return .success(())
+		} catch let error as APIError {
+			return .failure(error)
+		} catch {
+			return .failure(UNKNOWN_ERROR)
 		}
-		
 	}
 	
 	func archiveWorkout(workout: Workout) {

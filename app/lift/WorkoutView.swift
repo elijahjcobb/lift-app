@@ -72,7 +72,7 @@ struct MetricPicker: View {
 	}
 }
 
-let DEBOUNCE_TIME = 2.0
+let DEBOUNCE_TIME = 1.0
 
 func stepSizeForMetric(metric: Metric) -> Float {
 	
@@ -115,6 +115,7 @@ struct WorkoutRow: View {
 	@State var sets: Int;
 	@State var value: Float;
 	@State var debounce_timer: Timer?
+	@State var is_planned: Bool
 	
 	func update() {
 		store.updatePoint(point: self.point)
@@ -132,10 +133,20 @@ struct WorkoutRow: View {
 	var body: some View {
 		Section(point.metric.name) {
 			VStack {
-				if point.planned {
+				if self.is_planned {
 					Button {
 						withAnimation {
-							store.startPoint(point: point)
+							self.is_planned = false
+						}
+						Task {
+							do {
+								try await store.startPoint(point: point).get()
+							} catch {
+								withAnimation {
+									self.is_planned = true
+								}
+								print(error)
+							}
 						}
 					} label: {
 						HStack {
@@ -182,7 +193,7 @@ struct WorkoutView: View {
 				NavigationStack {
 					List {
 						ForEach(workout.points, id: \.id) { point in
-							WorkoutRow(point: point, sets: point.sets, value: point.value ?? 0)
+							WorkoutRow(point: point, sets: point.sets, value: point.value ?? 0, is_planned: point.planned)
 						}
 						Section {
 							Button("Add Metric") {

@@ -1,0 +1,124 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider          = "postgresql"
+  url               = env("POSTGRES_PRISMA_URL") // uses connection pooling
+  directUrl         = env("POSTGRES_URL_NON_POOLING") // uses a direct connection
+  shadowDatabaseUrl = env("POSTGRES_URL_NON_POOLING") // used for migrations
+}
+
+// a table of numbers allowed to sign up
+model WhiteList {
+  phone_number String @id @unique
+}
+
+// The user object
+model User {
+  id           String        @id @default(uuid()) @db.Uuid
+  created_at   DateTime      @default(now())
+  updated_at   DateTime      @updatedAt
+  name         String
+  dummy        Boolean       @default(false)
+  phone_number String        @unique
+  avatar       String?
+  Workout      Workout[]
+  WorkoutPlan  WorkoutPlan[]
+  Metric       Metric[]
+  Token        Token[]
+  Message      Message[]
+}
+
+model Message {
+  id         String   @id @default(uuid()) @db.Uuid
+  created_at DateTime @default(now())
+  updated_at DateTime @updatedAt
+  role       String
+  value      String
+  user_id    String   @db.Uuid
+  user       User     @relation(fields: [user_id], references: [id], onDelete: Cascade)
+}
+
+model Salt {
+  phone_number String @id @unique
+  salt         String
+}
+
+model Token {
+  id         String   @id @default(uuid()) @db.Uuid
+  created_at DateTime @default(now())
+  expires_at DateTime
+  user_id    String   @db.Uuid
+  user       User     @relation(fields: [user_id], references: [id], onDelete: Cascade)
+  name       String?
+}
+
+// something that can be measured, etc: Bicep Curl, Squat, etc
+model Metric {
+  id            String      @id @default(uuid()) @db.Uuid
+  created_at    DateTime    @default(now())
+  updated_at    DateTime    @updatedAt
+  name          String
+  unit          String?
+  default_value Float?
+  default_sets  Int?
+  step_size     Float?
+  Point         Point[]
+  user_id       String      @db.Uuid
+  user          User        @relation(fields: [user_id], references: [id], onDelete: Cascade)
+  PointPlan     PointPlan[]
+}
+
+// an actual workout workout, etc: 3 sets of 10 bicep curls
+model Workout {
+  id         String       @id @default(uuid()) @db.Uuid
+  created_at DateTime     @default(now())
+  updated_at DateTime     @updatedAt
+  start_date DateTime     @default(now())
+  end_date   DateTime?
+  plan_id    String?      @db.Uuid
+  plan       WorkoutPlan? @relation(fields: [plan_id], references: [id], onDelete: SetNull)
+  user_id    String       @db.Uuid
+  user       User         @relation(fields: [user_id], references: [id], onDelete: Cascade)
+  points     Point[]
+  archived   Boolean      @default(false)
+}
+
+// the result of a metric for a workout, etc: 10 bicep curls
+model Point {
+  id         String   @id @default(uuid()) @db.Uuid
+  created_at DateTime @default(now())
+  updated_at DateTime @updatedAt
+  workout_id String   @db.Uuid
+  metric_id  String   @db.Uuid
+  planned    Boolean  @default(false)
+  value      Float?
+  sets       Int
+  workout    Workout  @relation(fields: [workout_id], references: [id], onDelete: Cascade)
+  metric     Metric   @relation(fields: [metric_id], references: [id], onDelete: Cascade)
+}
+
+model WorkoutPlan {
+  id         String      @id @default(uuid()) @db.Uuid
+  created_at DateTime    @default(now())
+  updated_at DateTime    @updatedAt
+  name       String
+  archived   Boolean     @default(false)
+  user_id    String      @db.Uuid
+  user       User        @relation(fields: [user_id], references: [id], onDelete: Cascade)
+  points     PointPlan[]
+  workouts   Workout[]
+}
+
+model PointPlan {
+  id              String      @id @default(uuid()) @db.Uuid
+  created_at      DateTime    @default(now())
+  updated_at      DateTime    @updatedAt
+  value           Float?
+  sets            Int
+  workout_plan_id String      @db.Uuid
+  metric_id       String      @db.Uuid
+  workout_plan    WorkoutPlan @relation(fields: [workout_plan_id], references: [id], onDelete: Cascade)
+  metric          Metric      @relation(fields: [metric_id], references: [id], onDelete: Cascade)
+}
