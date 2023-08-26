@@ -347,7 +347,6 @@ class Store: ObservableObject {
 	}
 	
 	func quitWorkout(workout: Workout) {
-		self.tabIndex = 0
 		self.activeWorkout = nil
 		Task {
 			do {
@@ -355,7 +354,6 @@ class Store: ObservableObject {
 			} catch {
 				print(error)
 				DispatchQueue.main.async {
-					self.tabIndex = 1
 					self.activeWorkout = workout
 				}
 			}
