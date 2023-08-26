@@ -187,6 +187,7 @@ struct WorkoutView: View {
 	@EnvironmentObject var store: Store
 	@State var showMetricPicker = false
 	@State var showFinishDialog = false
+	@State var showQuitDialog = false
 	var body: some View {
 		VStack {
 			if let workout = store.activeWorkout {
@@ -204,7 +205,18 @@ struct WorkoutView: View {
 					.listStyle(.insetGrouped)
 					.navigationTitle("Workout")
 					.toolbar {
-						ToolbarItem {
+						ToolbarItem (placement: .navigationBarLeading) {
+							Button (role: .destructive) {
+								self.showQuitDialog = true
+							} label: {
+								HStack {
+									Image(systemName: "clear.fill")
+									Text("Quit")
+								}
+							}
+							.buttonStyle(.bordered)
+						}
+						ToolbarItem (placement: .navigationBarTrailing) {
 							Button {
 								self.showFinishDialog = true
 							} label: {
@@ -236,6 +248,16 @@ struct WorkoutView: View {
 					self.showFinishDialog = false
 					workout.endDate = Date()
 					store.finishWorkout(workout: workout)
+				}
+			}
+		}
+		.confirmationDialog(
+			"Are you sure you want to quit?",
+			isPresented: $showQuitDialog
+		) {
+			Button("Quit Workout", role: .destructive) {
+				if let workout = store.activeWorkout {
+					store.quitWorkout(workout: workout)
 				}
 			}
 		}

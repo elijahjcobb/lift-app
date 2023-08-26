@@ -346,6 +346,22 @@ class Store: ObservableObject {
 		}
 	}
 	
+	func quitWorkout(workout: Workout) {
+		self.tabIndex = 0
+		self.activeWorkout = nil
+		Task {
+			do {
+				try await fetch(path: "/workout/\(workout.id)/quit", method: "POST", type: APIEmpty.self, body: [:]).get()
+			} catch {
+				print(error)
+				DispatchQueue.main.async {
+					self.tabIndex = 1
+					self.activeWorkout = workout
+				}
+			}
+		}
+	}
+	
 	func startWorkout() {
 		Task {
 			do {

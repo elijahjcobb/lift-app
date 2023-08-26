@@ -14,20 +14,10 @@ export const POST = createEndpoint(async (req, _id) => {
   if (workout.end_date) {
     throw new APIError({
       code: "invalid_request",
-      message: "You cannot end a workout that has already ended.",
+      message: "You cannot quit a workout that has already ended.",
       statusCode: 400,
     });
   }
-
-  await prisma.point.deleteMany({
-    where: {
-      workout: {
-        user_id: user.id,
-        id: workout.id,
-      },
-      planned: true,
-    },
-  });
 
   workout = await prisma.workout.update({
     where: {
@@ -36,6 +26,7 @@ export const POST = createEndpoint(async (req, _id) => {
     },
     data: {
       end_date: new Date(),
+      archived: true,
     },
     include: {
       points: {
